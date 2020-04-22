@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Potion", menuName = "Items/Potion", order = 1)]
-public class Potion : Consumable 
+public class Potion : ScriptableObject
 {
-    [SerializeField]
-    int points;
+    [SerializeField] string objectName = "Potion";
+    [SerializeField] int healthRestore;
+    [SerializeField, TextArea(3, 10)] string description;
 
-    public int Points { get => points;  }
-
-    public override void Drink()
-    {
-        base.Drink();
-        Debug.Log("Consumed");
-    }
+    public int HealthRestore { get => healthRestore; }
 }
-
-
