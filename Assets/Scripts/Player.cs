@@ -9,8 +9,15 @@ public class Player : MonoBehaviour
     
     Animator anim;
 
-    void Awake() {
+    [SerializeField] GameObject weapon;
+
+    void Awake() 
+    {
         anim = GetComponent<Animator>();    
+    }
+
+    void Start() {
+        WeaponVisible(false);   
     }
 
     void Update()
@@ -28,5 +35,12 @@ public class Player : MonoBehaviour
     Vector3 Axis
     {
         get => new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+    }
+    
+    public Animator Anim { get => anim; }
+
+    public void WeaponVisible(bool visible)
+    {
+        weapon.SetActive(visible);
     }
 }
